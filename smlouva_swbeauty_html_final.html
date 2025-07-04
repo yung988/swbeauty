@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smlouva o dílo</title>
+    <style>
+        @page {
+            margin: 1cm;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            max-width: none;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+        .container {
+            background-color: white;
+            padding: 10px;
+            position: relative;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        h1 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 15px;
+            margin-top: 0;
+        }
+        h2 {
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 3px;
+            page-break-inside: avoid;
+        }
+        h3 {
+            font-size: 16px;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+        p, ul, ol {
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        ol {
+            list-style-type: decimal;
+            margin-left: 20px;
+        }
+        strong {
+            font-weight: bold;
+        }
+        .signature-block {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .signature-line {
+            flex-basis: 48%;
+            border-top: 1px solid #ccc;
+            padding-top: 5px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        .signature-line p {
+            margin: 0;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Smlouva o dílo</h1>
+
+        <h2>Smluvní strany:</h2>
+
+        <h3>Objednatel:</h3>
+        <p>
+            Název: SW Beauty s.r.o.<br>
+            Sídlo: Lidická 700/19, Veveří, 602 00 Brno<br>
+            IČO: 21237611<br>
+            Zastoupený: Sabina Weisbergerová<br>
+            Bankovní spojení: 4907297058/0800
+        </p>
+
+        <h3>Zhotovitel:</h3>
+        <p>
+            Jméno a příjmení: Jan Gajdoš<br>
+            Adresa: Biskupice-Pulkov, Biskupice 72, 67 557<br>
+            IČO: 09418466<br>
+            Bankovní spojení: LT31 3250 0125 0989 4250 (BIC/SWIFT: REVOLT21)
+        </p>
+
+        <p>(dále jen „Smluvní strany")</p>
+
+        <h2>I. Předmět smlouvy</h2>
+        <p>Předmětem této smlouvy je závazek Zhotovitele vytvořit a dodat Objednateli jednostránkový web pro kosmetický salon „SW Beauty" (dále jen „Dílo") a závazek Objednatele Dílo převzít a zaplatit za něj sjednanou cenu.</p>
+
+        <h2>II. Specifikace Díla</h2>
+        <p>Dílo bude zahrnovat:</p>
+        <ul>
+            <li>Prezentaci kosmetického salonu SW Beauty, včetně vizuální podoby salonu.</li>
+            <li>Přehled nabízených procedur.</li>
+            <li>Integraci s Instagramem pro zobrazení obsahu.</li>
+            <li>Integraci s rezervačním systémem Reservio.</li>
+            <li>Responzivní design pro zobrazení na různých zařízeních (mobil, tablet, desktop).</li>
+        </ul>
+        <p>Zhotovitel dodá Dílo ve formátu HTML, CSS a JavaScript, optimalizované pro webové prohlížeče.</p>
+
+        <h2>III. Cena Díla a platební podmínky</h2>
+        <p>Celková cena za Dílo je stanovena dohodou Smluvních stran na <strong>35 000,- Kč (slovy: třicet pět tisíc korun českých)</strong>.</p>
+
+        <h3>Platební podmínky:</h3>
+        <ol>
+            <li><strong>Záloha 1:</strong> Objednatel uhradil Zhotoviteli zálohu ve výši <strong>5 000,- Kč</strong> (slovy: pět tisíc korun českých) dne 12.06.2025. Zbývající část zálohy ve výši <strong>5 000,- Kč</strong> (slovy: pět tisíc korun českých) bude uhrazena do 02.07.2025 na bankovní účet Zhotovitele.</li>
+            <li><strong>Záloha 2:</strong> Objednatel uhradí Zhotoviteli zálohu ve výši <strong>10 000,- Kč</strong> (slovy: deset tisíc korun českých) do 31.07.2025 na bankovní účet Zhotovitele.</li>
+            <li><strong>Doplatek:</strong> Zbývající část ceny ve výši <strong>15 000,- Kč</strong> (slovy: patnáct tisíc korun českých) bude uhrazena Objednatelem po dokončení Díla a jeho schválení Objednatelem, nejpozději však do 31.08.2025 na bankovní účet Zhotovitele.</li>
+        </ol>
+        <p>Zhotovitel je oprávněn pozastavit práce na Díle v případě prodlení Objednatele s úhradou jakékoli zálohy. Termín dodání Díla se v takovém případě prodlužuje o dobu prodlení s platbou.</p>
+
+        <h2>IV. Termín dodání Díla a milníky</h2>
+        <p>Zhotovitel se zavazuje dokončit Dílo a předat jej Objednateli v následujících fázích, za předpokladu řádné a včasné součinnosti Objednatele a včasné úhrady záloh:</p>
+        <ol>
+            <li><strong>Fáze 1 – Spuštění prezentačního webu:</strong> Po uhrazení Zálohy 1 (celkem 10 000,- Kč) Zhotovitel dokončí základní strukturu webu a implementuje vizuální podobu salonu a přehled procedur. Web bude spuštěn na finální doméně (hostované Zhotovitelem) a bude veřejně dostupný. Předpokládaný termín spuštění této fáze je do 16.07.2025.</li>
+            <li><strong>Fáze 2 – Integrace Instagramu a Reservio:</strong> Po uhrazení Zálohy 2 (celkem 10 000,- Kč) Zhotovitel provede integraci s Instagramem a rezervačním systémem Reservio. Předpokládaný termín dokončení této fáze je do 31.07.2025.</li>
+            <li><strong>Fáze 3 – Finální předání a převod hostingu:</strong> Po uhrazení Doplatku (celkem 15 000,- Kč) a schválení Díla Objednatelem, Zhotovitel předá Objednateli veškeré přístupy k hotovému Dílu (včetně zdrojových souborů, databáze, administrace) a zajistí převod webu z hostingu na účtu Zhotovitele u poskytovatele Vercel na účet Objednatele u poskytovatele Vercel, nebo na jiný hosting dle dohody stran. Předpokládaný termín finálního předání je do 31.08.2025.</li>
+        </ol>
+        <p>Zhotovitel je oprávněn pozastavit práce na Díle v případě prodlení Objednatele s úhradou jakékoli zálohy nebo doplatku. Termín dodání Díla se v takovém případě prodlužuje o dobu prodlení s platbou. Finální předání Díla (Fáze 3) a převod plných přístupů je podmíněno úplným uhrazením celé sjednané ceny za Dílo.</p>
+
+        <h2>V. Práva a povinnosti smluvních stran</h2>
+        <h3>Zhotovitel se zavazuje:</h3>
+        <ul>
+            <li>Vytvořit Dílo v souladu se specifikací uvedenou v čl. II této smlouvy.</li>
+            <li>Dodržet sjednaný termín dodání Díla.</li>
+            <li>Poskytovat Objednateli informace o průběhu prací.</li>
+        </ul>
+
+        <h3>Objednatel se zavazuje:</h3>
+        <ul>
+            <li>Poskytnout Zhotoviteli veškeré potřebné podklady a informace pro tvorbu Díla (texty, obrázky, loga apod.) v dohodnutých termínech.</li>
+            <li>Poskytovat Zhotoviteli včasnou zpětnou vazbu a schvalovat jednotlivé fáze Díla.</li>
+            <li>Uhradit sjednanou cenu za Dílo v souladu s platebními podmínkami.</li>
+        </ul>
+
+        <h2>VI. Správa a údržba webu</h2>
+        <ol>
+            <li><strong>Správa webu:</strong> Zhotovitel se zavazuje provádět správu a údržbu webových stránek po dobu trvání této smlouvy, a to včetně:
+                <ul>
+                    <li>Pravidelných aktualizací platformy a pluginů (pokud relevantní).</li>
+                    <li>Zajištění funkčnosti webu a řešení případných technických problémů.</li>
+                    <li>Pravidelných záloh dat webu.</li>
+                    <li>Monitoringu dostupnosti webu.</li>
+                </ul>
+            </li>
+            <li><strong>Roční poplatek za správu:</strong> Objednatel se zavazuje hradit Zhotoviteli roční poplatek za správu a údržbu webu ve výši <strong>1 000,- Kč</strong> (slovy: jeden tisíc korun českých). Tento poplatek je splatný vždy k <strong>1. září každého roku</strong> a pokrývá služby uvedené v bodě 1. této sekce. Poplatek bude poprvé splatný <strong>1. září 2026</strong>.</li>
+            <li><strong>Rozsah správy:</strong> Rozsah správy nezahrnuje tvorbu nového obsahu, grafické úpravy nad rámec běžné údržby, ani rozšiřování funkcionalit webu. Tyto služby budou účtovány samostatně dle individuální dohody.</li>
+            <li><strong>Ukončení správy:</strong> Služby správy webu mohou být ukončeny písemnou dohodou obou stran nebo výpovědí jedné ze stran s tříměsíční výpovědní lhůtou.</li>
+        </ol>
+
+        <h2>VII. Předání a převzetí Díla</h2>
+        <p>Po dokončení Díla Zhotovitel oznámí Objednateli jeho připravenost k předání. Objednatel je povinen Dílo zkontrolovat a schválit do 7 pracovních dnů od oznámení. V případě zjištění vad je Objednatel povinen vady písemně specifikovat. Zhotovitel se zavazuje vady odstranit v přiměřené lhůtě.</p>
+
+        <h2>VIII. Duševní vlastnictví</h2>
+        <p>Po úplném zaplacení sjednané ceny za Dílo přechází veškerá majetková práva k Dílu na Objednatele. Zhotovitel si ponechává právo prezentovat Dílo ve svém portfoliu.</p>
+        <p>Objednatel potvrzuje, že má právo použít všechny poskytnuté materiály (texty, obrázky, loga) a že jejich použitím nedojde k porušení práv třetích stran.</p>
+
+        <h2>IX. Závěrečná ustanovení</h2>
+        <p>Tato smlouva nabývá platnosti a účinnosti dnem podpisu oběma Smluvními stranami. Smlouva je vyhotovena ve dvou vyhotoveních, z nichž každá Smluvní strana obdrží jedno. Změny a doplňky této smlouvy lze činit pouze písemnými dodatky odsouhlasenými oběma Smluvními stranami.</p>
+
+        <div class="signature-block">
+            <div class="signature-line">
+                <p>V Biskupicích dne 01.07.2025</p>
+                <p>_________________________</p>
+                <p>Jan Gajdoš</p>
+                <p>Zhotovitel</p>
+            </div>
+            <div class="signature-line">
+                <p>&nbsp;</p>
+                <p>_________________________</p>
+                <p>Sabina Weisbergerová</p>
+                <p>Objednatel</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

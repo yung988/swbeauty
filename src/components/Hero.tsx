@@ -31,8 +31,8 @@ const Hero = ({ openModal }: { openModal: (modalId: string) => void }) => {
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
-              Buďte svou vlastní <br />
-              <span className="italic">inspirací</span>
+              Vstupte do světa <br />
+              <span className="italic">zdravého sebevědomí a krásy</span>
             </motion.h1>
             
             <motion.p
@@ -41,7 +41,7 @@ const Hero = ({ openModal }: { openModal: (modalId: string) => void }) => {
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.4 }}
             >
-              Dopřejte si luxusní péči v našem salonu, kde kombinujeme nejmodernější technologie s osobním přístupem pro dokonalé výsledky.
+              Objevte revoluční technologie pro péči o pleť a tělo. Nabízíme širokou škálu služeb od kosmetických ošetření až po nejmodernější estetické procedury.
             </motion.p>
             
             <motion.div

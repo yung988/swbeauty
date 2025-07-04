@@ -17,16 +17,16 @@ const Contact = () => {
                 <strong className="font-medium">Adresa:</strong>
               </p>
               <p className="text-gray-700 font-light mb-4">
-                SWBeauty<br />
-                Nádražní 25<br />
-                150 00 Praha 5
+                SW Beauty s.r.o.<br />
+                Velkomoravská 40<br />
+                695 04 Hodonín
               </p>
               
               <p className="text-gray-700 font-light mb-2">
                 <strong className="font-medium">Telefon:</strong>
               </p>
               <p className="text-gray-700 font-light mb-4">
-                +420 777 888 999
+                +420 773 577 899
               </p>
               
               <p className="text-gray-700 font-light mb-2">
@@ -39,11 +39,9 @@ const Contact = () => {
               <p className="text-gray-700 font-light mb-2">
                 <strong className="font-medium">Otevírací doba:</strong>
               </p>
-              <p className="text-gray-700 font-light">
-                Pondělí - Pátek: 9:00 - 20:00<br />
-                Sobota: 10:00 - 18:00<br />
-                Neděle: Zavřeno
-              </p>
+              <p className="text-gray-700 font-light mb-1">Pondělí - Pátek: 7:00 - 20:00</p>
+              <p className="text-gray-700 font-light mb-1">Sobota: 9:00 - 16:00</p>
+              <p className="text-gray-700 font-light">Neděle: dle dohody</p>
             </div>
             
             <div>
