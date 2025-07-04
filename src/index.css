@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Lato:wght@100;200;300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Text shadow for better visibility */
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: #F3F4F6; /* Tailwind gray-100 */
+  color: #374151; /* Tailwind gray-700 for general text */
+  letter-spacing: 0.02em;
+  font-weight: 300;
+}
+
+:root {
+  --primary: #000000;
+  --secondary: #FFFFFF; /* White for card backgrounds etc. */
+  --accent: #d4af7a;
+  --background: #F3F4F6; /* Tailwind gray-100 */
+  --text-primary: #1F2937; /* Tailwind gray-800 for headings */
+  --text-secondary: #4B5563; /* Tailwind gray-600 for less important text */
+  /* Odstraněny --light-pink, --light-blue, --light-green */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.font-serif {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.font-sans {
+  font-family: 'Lato', sans-serif;
+}
+
+.font-display {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-italic {
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+}
+
+/* High contrast elements */
+.high-contrast {
+  color: var(--primary);
+  background-color: var(--secondary);
+}
+
+.high-contrast-reverse {
+  color: var(--secondary);
+  background-color: var(--primary);
+}
+
+/* Luxury text treatments */
+.luxury-headline {
+  font-size: clamp(3rem, 10vw, 12rem);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  font-weight: 400;
+  text-align: center;
+}
+
+.luxury-subheadline {
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  font-weight: 300;
+  text-align: center;
+}
+
+/* Elegant buttons */
+.btn-primary {
+  display: inline-block;
+  padding: 0.75rem 2.5rem;
+  font-size: 0.875rem;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: 1px solid var(--primary);
+  transition: all 0.5s ease;
+  background-color: transparent;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary);
+  color: var(--secondary);
+}
+
+.btn-secondary {
+  display: inline-block;
+  padding: 0.75rem 2.5rem;
+  font-size: 0.875rem;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background-color: var(--primary);
+  color: var(--secondary);
+  transition: all 0.5s ease;
+}
+
+.btn-secondary:hover {
+  background-color: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+/* Subtitle styling */
+.subtitle {
+  font-size: 0.875rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-align: center;
+}
+
+/* Section title styling */
+.section-title {
+  font-size: clamp(2.5rem, 8vw, 9rem);
+  line-height: 1;
+  margin-bottom: 3rem;
+  font-weight: 400;
+  text-align: center;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3rem;
+  height: 1px;
+  background-color: var(--accent);
+}
+
+/* Modal backdrop blur */
+.backdrop-blur-sm {
+  backdrop-filter: blur(12px);
+}
+
+/* Circular images */
+.circular-image {
+  border-radius: 50%;
+  overflow: hidden;
+  aspect-ratio: 1/1;
+}
+
+/* Subtle hover effects */
+.subtle-hover {
+  transition: transform 0.7s ease, opacity 0.7s ease;
+}
+
+.subtle-hover:hover {
+  transform: translateY(-5px);
+  opacity: 0.9;
+}
+
+/* Luxury grid layout */
+.luxury-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 4rem;
+}
+
+/* Decorative elements */
+.decorative-dot {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  margin: 0 0.5rem;
+  vertical-align: middle;
+}
+
+/* Thin divider */
+.thin-divider {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin: 3rem 0;
+}
+
+/* Centered container */
+.centered-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+/* Luxury spacing */
+.luxury-spacing {
+  padding: 8rem 0;
+}
+
+/* Subtle animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1.2s ease forwards;
+}
+
+/* Category cards */
+.category-card {
+  border-radius: 0;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.7s ease;
+}
+
+.category-card:hover {
+  transform: scale(1.02);
+}
+
+/* Product display */
+.product-display {
+  padding: 3rem;
+  text-align: center;
+  transition: all 0.5s ease;
+}
+
+.product-display:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Elegant form elements */
+.elegant-input {
+  width: 100%;
+  padding: 1rem 0;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+  transition: all 0.3s ease;
+  font-weight: 300;
+}
+
+.elegant-input:focus {
+  outline: none;
+  border-bottom: 1px solid var(--accent);
+}
+
+/* Pastel backgrounds - tyto třídy smažu, pokud nejsou použity jinde */
+/*
+.bg-light-pink {
+  background-color: var(--light-pink);
+}
+
+.bg-light-blue {
+  background-color: var(--light-blue);
+}
+
+.bg-light-green {
+  background-color: var(--light-green);
+}
+*/
