@@ -14,8 +14,8 @@ const Footer = () => {
             <h4 className="text-lg font-medium mb-4">Kontakt</h4>
             <p className="text-gray-600 font-light mb-2">
               SW Beauty s.r.o.<br />
-              Velkomoravská 40<br />
-              695 04 Hodonín
+              U Cihelny 1326/2<br />
+              695 01 Hodonín
             </p>
             <p className="text-gray-600 font-light mb-2">
               +420 773 577 899

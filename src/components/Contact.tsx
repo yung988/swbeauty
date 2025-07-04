@@ -18,8 +18,8 @@ const Contact = () => {
               </p>
               <p className="text-gray-700 font-light mb-4">
                 SW Beauty s.r.o.<br />
-                Velkomoravská 40<br />
-                695 04 Hodonín
+                U Cihelny 1326/2<br />
+                695 01 Hodonín
               </p>
               
               <p className="text-gray-700 font-light mb-2">
@@ -85,11 +85,17 @@ const Contact = () => {
         
         <div className="mt-12 pt-8">
           <h3 className="text-2xl font-serif mb-4 text-center md:text-left">JAK SE K NÁM DOSTANETE</h3>
-          <div className="aspect-w-16 aspect-h-9 h-72 md:h-96 bg-gray-200 rounded-lg">
-            {/* Here you would typically embed a Google Map */}
-            <div className="w-full h-full flex items-center justify-center">
-              <p className="text-gray-500">Mapa bude zobrazena zde</p>
-            </div>
+          <div className="aspect-w-16 aspect-h-9 h-72 md:h-96 bg-gray-200 rounded-lg overflow-hidden">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.8107020182456!2d17.11617167706478!3d48.86182000046445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47132f022782b9fd%3A0xcb330e8b5c9f7c1c!2s4%2C%20U%20Cihelny%201326%2F2%2C%20695%2001%20Hodon%C3%ADn%201!5e0!3m2!1scs!2scz!4v1751611475043!5m2!1scs!2scz"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen={true}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="SW Beauty s.r.o. - U Cihelny 1326/2, 695 01 Hodonín"
+            />
           </div>
         </div>
       </motion.div>
