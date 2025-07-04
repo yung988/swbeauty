@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { kosmetikaServicesData, KosmetikaService } from '../data/kosmetikaData';
+import { kosmetikaServicesData } from '../data/kosmetikaData';
 
 interface KosmetikaServiceDetailProps {
   serviceId: string; // Např. 'klasicke-osetreni'

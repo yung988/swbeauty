@@ -57,7 +57,7 @@ const HomePage = () => {
               )}
               
               {(activeModal === 'hifu' || activeModal === 'endosphere' || activeModal === 'hair-extensions') && (
-                <ServiceDetail serviceId={activeModal} onClose={closeModal} />
+                <ServiceDetail serviceId={activeModal} onClose={closeModal} openModal={openModal} />
               )}
             </div>
           </motion.div>
