@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { procedures } from '../data/procedures';
+import { procedures } from '../data/new-procedures';
 
 interface ServiceDetailProps {
   serviceId: string;

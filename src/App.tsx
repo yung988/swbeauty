@@ -115,7 +115,7 @@ function App() {
             </Modal>
           )}
           
-          {(activeModal === 'endosphere' || activeModal === 'hifu' || activeModal === 'hair-extensions') && (
+          {(activeModal === 'kosmetika' || activeModal === 'budovani-svalu' || activeModal === 'hifu' || activeModal === 'endosphere' || activeModal === 'kavitace' || activeModal === 'ostatni-sluzby') && (
             <Modal onClose={closeModal} title={activeModal.toUpperCase().replace('-', ' ')}>
               <ServiceDetail serviceId={activeModal} onClose={closeModal} openModal={openModal} />
             </Modal>

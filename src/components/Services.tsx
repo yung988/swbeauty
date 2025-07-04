@@ -7,25 +7,46 @@ interface ServicesProps {
 const Services = ({ openModal }: ServicesProps) => {
   const services = [
     {
-      id: 'endosphere',
-      name: 'Endosphere',
-      description: 'Revoluční neinvazivní terapie pro tvarování těla a redukci celulitidy',
-      image: '/images/service-endosphere.jpg',
-      benefits: ['Redukce celulitidy', 'Zpevnění pokožky', 'Tvarování postavy']
+      id: 'kosmetika',
+      name: 'KOSMETIKA',
+      description: 'Kompletní péče o pleť a specializované kosmetické procedury',
+      image: '/images/service-hair.jpg',
+      benefits: ['14 různých procedur', 'Mikrojehlání a dermapen', 'Laminace řas a obočí']
+    },
+    {
+      id: 'budovani-svalu',
+      name: 'BUDOVÁNÍ SVALŮ',
+      description: 'Revoluční technologie pro stimulaci svalů a tvarování těla',
+      image: '/images/service-hifu.jpg',
+      benefits: ['30 000 stahů za 30 minut', 'Náhrada až 5 hodin posilování', 'Regenerace svalů']
     },
     {
       id: 'hifu',
-      name: 'Hifu',
+      name: 'HIFU FACELIFT',
       description: 'Neinvazivní lifting a zpevnění pokožky pomocí fokusovaného ultrazvuku',
       image: '/images/service-hifu.jpg',
-      benefits: ['Lifting obličeje', 'Zpevnění kontur', 'Omlazení pleti']
+      benefits: ['Lifting obličeje', 'Vypnutí pleti', 'Stimulace kolagenu']
     },
     {
-      id: 'hair-extensions',
-      name: 'Prodlužování vlasů',
-      description: 'Luxusní prodlužování vlasů metodou microkeratin pro přirozený vzhled',
-      image: '/images/service-hair.jpg',
-      benefits: ['Přirozený vzhled', 'Kvalitní evropské vlasy', 'Dlouhotrvající efekt']
+      id: 'endosphere',
+      name: 'ENDOS-ROLLER',
+      description: 'Pokročilá technologie kompresní mikrovibrace pro redukci celulitidy',
+      image: '/images/service-endosphere.jpg',
+      benefits: ['Redukce celulitidy', 'Lymfatická drenáž', 'Tvarování postavy']
+    },
+    {
+      id: 'kavitace',
+      name: 'KAVITACE',
+      description: 'Bezbolestné ošetření ultrazukem rozbíjející tukové buňky',
+      image: '/images/service-endosphere.jpg',
+      benefits: ['Rozbíjení tukových buněk', 'Odvádění tuků lymfou', 'Zštíhlení partií']
+    },
+    {
+      id: 'ostatni-sluzby',
+      name: 'OSTATNÍ SLUŽBY',
+      description: 'Speciální balíčky procedur pro komplexní péči za výhodné ceny',
+      image: '/images/service-hifu.jpg',
+      benefits: ['3 výhodné balíčky', 'Kombinace procedur', 'Maximální efekt']
     }
   ];
 
@@ -88,7 +109,7 @@ const Services = ({ openModal }: ServicesProps) => {
           </motion.div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-16">
           {services.map((service, index) => (
             <motion.div
               key={service.id}
