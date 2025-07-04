@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Lato:wght@100;200;300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Lato:wght@100;200;300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&subset=latin,latin-ext&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -10,7 +10,7 @@
 }
 
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Lato', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
   background-color: #F3F4F6; /* Tailwind gray-100 */
   color: #374151; /* Tailwind gray-700 for general text */
   letter-spacing: 0.02em;
@@ -28,26 +28,26 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
   font-weight: 400;
   letter-spacing: -0.02em;
 }
 
 .font-serif {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
 }
 
 .font-sans {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Lato', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 }
 
 .font-display {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', 'Times New Roman', Georgia, serif;
 }
 
 .font-italic {
   font-style: italic;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
   font-weight: 300;
 }
 

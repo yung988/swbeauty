@@ -13,11 +13,12 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-medium mb-4">Kontakt</h4>
             <p className="text-gray-600 font-light mb-2">
-              Nádražní 25<br />
-              150 00 Praha 5
+              SW Beauty s.r.o.<br />
+              Velkomoravská 40<br />
+              695 04 Hodonín
             </p>
             <p className="text-gray-600 font-light mb-2">
-              +420 777 888 999
+              +420 773 577 899
             </p>
             <p className="text-gray-600 font-light">
               info@swbeauty.cz
