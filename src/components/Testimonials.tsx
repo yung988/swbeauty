@@ -1,3 +1,4 @@
+// Používáme motion z framer-motion pro animace
 import { motion } from 'framer-motion';
 
 const Testimonials = () => {
