@@ -30,7 +30,7 @@ const Navbar = ({ openModal }: NavbarProps) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'services', 'kosmetika', 'testimonials', 'contact', '#career', '#shop', '#social'];
+      const sections = ['home', 'services', 'about', 'testimonials', 'gallery', 'pricing', 'contact'];
       const current = sections.find(section => {
         const element = document.getElementById(section.replace('#',''));
         if (element) {
@@ -64,10 +64,13 @@ const Navbar = ({ openModal }: NavbarProps) => {
   };
   
   const navLinks = [
-    { id: 'services', label: 'SLUŽBY' }, // Původní funkční odkaz
-    { id: '#career', label: 'KARIÉRA' }, 
-    { id: '#shop', label: 'OBCHOD' },   
-    { id: '#social', label: 'SOCIÁLNÍ SÍTĚ' } 
+    { id: 'home', label: 'DOMŮ' },
+    { id: 'services', label: 'SLUŽBY' },
+    { id: 'about', label: 'O NÁS' },
+    { id: 'testimonials', label: 'RECENZE' },
+    { id: 'gallery', label: 'GALERIE' },
+    { id: 'pricing', label: 'CENÍK' },
+    { id: 'contact', label: 'KONTAKT' }
   ];
 
   return (

@@ -2,12 +2,10 @@ import { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
-import KosmetikaSection from '../components/KosmetikaSection';
 import Testimonials from '../components/Testimonials';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import ServiceDetail from '../components/ServiceDetail';
-import KosmetikaDetail from '../components/KosmetikaDetail';
 import BookingForm from '../components/BookingForm';
 import AboutSection from '../components/AboutSection';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -31,7 +29,6 @@ const HomePage = () => {
       <Hero openModal={openModal} />
       <AboutSection />
       <Services openModal={openModal} />
-      <KosmetikaSection openModal={openModal} />
       <Testimonials />
       <Contact />
       <Footer />
@@ -50,10 +47,6 @@ const HomePage = () => {
             <div onClick={(e) => e.stopPropagation()} className="w-full max-w-5xl max-h-[90vh] overflow-y-auto">
               {activeModal === 'booking' && (
                 <BookingForm onClose={closeModal} />
-              )}
-              
-              {activeModal.startsWith('kosmetika-') && (
-                <KosmetikaDetail serviceId={activeModal} onClose={closeModal} />
               )}
               
               {(activeModal === 'hifu' || activeModal === 'endosphere' || activeModal === 'hair-extensions') && (

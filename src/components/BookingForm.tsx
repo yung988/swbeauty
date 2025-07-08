@@ -1,14 +1,13 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { kosmetikaServices } from '../data/kosmetika';
 import { procedures } from '../data/procedures';
 
 interface BookingFormProps {
   onClose: () => void;
 }
 
-type ServiceType = 'kosmetika' | 'procedury' | null;
-type ServiceItem = typeof kosmetikaServices[0] | typeof procedures[0] | null;
+type ServiceType = 'procedury' | null;
+type ServiceItem = typeof procedures[0] | null;
 
 const BookingForm = ({ onClose }: BookingFormProps) => {
   // Multi-step booking state
@@ -121,17 +120,7 @@ const BookingForm = ({ onClose }: BookingFormProps) => {
           >
             <h2 className="text-3xl font-serif mb-6 text-center">Vyberte typ služby</h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="bg-[#f8f5f0] p-6 rounded-lg text-center cursor-pointer hover:shadow-lg transition-all duration-300"
-                onClick={() => handleServiceTypeSelect('kosmetika')}
-              >
-                <h3 className="text-xl font-serif mb-2">Kosmetika</h3>
-                <p className="text-gray-600 font-light">Profesionální péče o pleť a kosmetické ošetření</p>
-              </motion.div>
-              
+            <div className="grid grid-cols-1 gap-6 mb-8">
               <motion.div
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -169,27 +158,6 @@ const BookingForm = ({ onClose }: BookingFormProps) => {
             </div>
             
             <div className="grid grid-cols-1 gap-4 max-h-[60vh] overflow-y-auto pr-2">
-              {serviceType === 'kosmetika' && kosmetikaServices.map((service) => (
-                <motion.div
-                  key={service.id}
-                  whileHover={{ scale: 1.01 }}
-                  whileTap={{ scale: 0.99 }}
-                  className="bg-[#f8f5f0] p-4 rounded-lg cursor-pointer hover:shadow-md transition-all duration-300"
-                  onClick={() => handleServiceSelect(service)}
-                >
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <h3 className="text-lg font-serif mb-1">{service.name}</h3>
-                      <p className="text-gray-600 text-sm font-light">{service.description}</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-lg">{service.price}</p>
-                      <p className="text-sm text-gray-500">{service.duration}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-              
               {serviceType === 'procedury' && procedures.map((procedure) => (
                 <motion.div
                   key={procedure.id}
@@ -215,7 +183,7 @@ const BookingForm = ({ onClose }: BookingFormProps) => {
         )}
 
         {/* Step 3: Select date and time */}
-        {step === 3 && (
+        {step === 3 && selectedService && (
           <motion.div
             key="step3"
             initial={{ opacity: 0 }}
@@ -237,28 +205,23 @@ const BookingForm = ({ onClose }: BookingFormProps) => {
               <div className="w-20"></div> {/* Spacer for alignment */}
             </div>
             
-            <div className="mb-6">
-              <h3 className="text-xl font-serif mb-2">Vybraná služba</h3>
-              <div className="bg-[#f8f5f0] p-4 rounded-lg">
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h4 className="text-lg font-serif mb-1">
-                      {'name' in selectedService! ? selectedService!.name : ''}
-                    </h4>
-                    <p className="text-gray-600 text-sm font-light">
-                      {'description' in selectedService! ? selectedService!.description : 
-                       'shortDescription' in selectedService! ? selectedService!.shortDescription : ''}
-                    </p>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-lg">
-                      {'price' in selectedService! ? selectedService!.price : 
-                       'packages' in selectedService! ? selectedService!.packages[0]?.price : ''}
-                    </p>
-                    <p className="text-sm text-gray-500">
-                      {'duration' in selectedService! ? selectedService!.duration : ''}
-                    </p>
-                  </div>
+            <div className="mb-6 p-4 bg-gray-50 rounded-lg">
+              <div className="flex justify-between items-start mb-4">
+                <div>
+                  <h4 className="text-lg font-serif mb-1">
+                    {selectedService.name}
+                  </h4>
+                  <p className="text-gray-600 text-sm font-light">
+                    {selectedService.shortDescription}
+                  </p>
+                </div>
+                <div className="text-right">
+                  <p className="text-lg">
+                    {selectedService.packages[0]?.price || ''}
+                  </p>
+                  <p className="text-sm text-gray-500">
+                    {selectedService.duration}
+                  </p>
                 </div>
               </div>
             </div>
@@ -418,7 +381,7 @@ const BookingForm = ({ onClose }: BookingFormProps) => {
               
               <div className="bg-[#f8f5f0] p-4 rounded-lg text-left mb-6">
                 <h3 className="text-lg font-serif mb-2">Shrnutí rezervace</h3>
-                <p><strong>Služba:</strong> {'name' in selectedService! ? selectedService!.name : ''}</p>
+                <p><strong>Služba:</strong> {selectedService?.name}</p>
                 <p><strong>Datum:</strong> {formData.date}</p>
                 <p><strong>Čas:</strong> {formData.time}</p>
                 <p><strong>Jméno:</strong> {formData.name}</p>

@@ -2,13 +2,11 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Hero from './components/Hero';
 import Services from './components/Services';
-import KosmetikaSection from './components/KosmetikaSection';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ServiceDetail from './components/ServiceDetail';
-import KosmetikaServiceDetail from './components/KosmetikaServiceDetail';
 import BookingForm from './components/BookingForm';
 import AboutSection from './components/AboutSection';
 
@@ -31,10 +29,6 @@ function App() {
   const openModal = (modalId: string) => {
     setActiveModal(modalId);
   };
-
-  // Rozpoznání, zda je to detail kosmetické služby
-  const isKosmetikaDetail = activeModal ? activeModal.startsWith('kosmetika-') : false;
-  const kosmetikaServiceId = isKosmetikaDetail && activeModal ? activeModal.replace('kosmetika-', '') : null;
 
   return (
     <>
@@ -80,23 +74,467 @@ function App() {
             <Hero openModal={openModal} />
           </section>
           
-          {/* Spojená sekce Služby a Kosmetika */}
+          {/* Služby sekce */}
           <div className="bg-white">
             <section id="services" className="py-16 md:py-24">
               <Services openModal={openModal} />
             </section>
-            
-            {/* Kosmetika sekce s menším horním paddingem pro napojení */}
-            <section id="kosmetika" className="pb-16 md:pb-24 pt-8 md:pt-12">
-              <KosmetikaSection openModal={openModal} />
-            </section>
           </div>
           
-          <section id="testimonials" className="py-20 bg-gray-50">
+          {/* O nás sekce */}
+          <section id="about" className="py-20 bg-gray-50">
+            <AboutSection />
+          </section>
+          
+          {/* Recenze sekce */}
+          <section id="testimonials" className="py-20 bg-white">
             <Testimonials />
           </section>
           
-          <section id="contact" className="py-20 bg-white">
+          {/* Galerie sekce */}
+          <section id="gallery" className="py-20 bg-gray-50">
+            <div className="container mx-auto px-6">
+              <motion.h2 
+                className="text-7xl md:text-9xl lg:text-[10rem] font-serif tracking-tighter mb-16 text-center text-black"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                viewport={{ once: true }}
+              >
+                GALERIE
+              </motion.h2>
+              
+              <motion.p
+                className="text-gray-600 max-w-2xl mx-auto text-lg md:text-xl font-light text-center mb-12"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                viewport={{ once: true }}
+              >
+                Nahlédněte do našeho luxusního salonu a prohlédněte si prostředí, kde poskytujeme naše služby.
+              </motion.p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[
+                  { src: '/images/salon/recepce.jpg', alt: 'Recepce SW Beauty', title: 'Recepce' },
+                  { src: '/images/salon/cekarna.jpg', alt: 'Čekárna SW Beauty', title: 'Čekárna' },
+                  { src: '/images/salon/cekarnaDetail.jpg', alt: 'Detail čekárny', title: 'Detail čekárny' },
+                  { src: '/images/salon/kreslomistnostnaprocedury.jpg', alt: 'Místnost na procedury', title: 'Místnost na procedury' },
+                  { src: '/images/salon/stul_detail.jpg', alt: 'Detail pracovního stolu', title: 'Detail pracovního stolu' },
+                  { src: '/images/salon/logonazdi.jpg', alt: 'Logo na zdi', title: 'Logo na zdi' }
+                ].map((item, index) => (
+                  <motion.div 
+                    key={index}
+                    className="aspect-square bg-white rounded-lg overflow-hidden shadow-lg group relative"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    whileHover={{ y: -5 }}
+                  >
+                    <img 
+                      src={item.src} 
+                      alt={item.alt} 
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-end justify-start p-4">
+                      <h3 className="text-white font-serif text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        {item.title}
+                      </h3>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+          
+          {/* Ceník sekce */}
+          <section id="pricing" className="py-20 bg-white">
+            <div className="container mx-auto px-6">
+              <motion.h2 
+                className="text-7xl md:text-9xl lg:text-[10rem] font-serif tracking-tighter mb-16 text-center text-black"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                viewport={{ once: true }}
+              >
+                CENÍK
+              </motion.h2>
+              
+              <motion.p
+                className="text-gray-600 max-w-2xl mx-auto text-lg md:text-xl font-light text-center mb-12"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                viewport={{ once: true }}
+              >
+                Kompletní ceník všech našich služeb a procedur
+              </motion.p>
+              
+              <div className="space-y-16">
+                {/* Kosmetika */}
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7 }}
+                >
+                  <h3 className="text-2xl md:text-3xl font-serif mb-6 relative">
+                    Kosmetika
+                    <span className="absolute -bottom-3 left-0 h-0.5 bg-[#d4af7a] w-16"></span>
+                  </h3>
+                  <div className="overflow-x-auto">
+                    <table className="w-full border-collapse">
+                      <thead>
+                        <tr className="border-b border-gray-200">
+                          <th className="text-left py-4 px-2 font-medium">Služba</th>
+                          <th className="text-right py-4 px-2 font-medium">Doba trvání</th>
+                          <th className="text-right py-4 px-2 font-medium">Cena</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">Základní ošetření pro suchou pleť</td>
+                          <td className="py-3 px-2 text-right text-gray-600">45 min</td>
+                          <td className="py-3 px-2 text-right font-medium">1 150 Kč</td>
+                        </tr>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">Ošetření s collagenem nebo pro rozšířené póry</td>
+                          <td className="py-3 px-2 text-right text-gray-600">50 min</td>
+                          <td className="py-3 px-2 text-right font-medium">1 350 Kč</td>
+                        </tr>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">Ošetření problematické pleti</td>
+                          <td className="py-3 px-2 text-right text-gray-600">60 min</td>
+                          <td className="py-3 px-2 text-right font-medium">1 490 Kč</td>
+                        </tr>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">Luxusní ošetření</td>
+                          <td className="py-3 px-2 text-right text-gray-600">75 min</td>
+                          <td className="py-3 px-2 text-right font-medium">1 700 Kč</td>
+                        </tr>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">Mikrojehlování</td>
+                          <td className="py-3 px-2 text-right text-gray-600">-</td>
+                          <td className="py-3 px-2 text-right font-medium">1 800 Kč</td>
+                        </tr>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">Dermapen obličej</td>
+                          <td className="py-3 px-2 text-right text-gray-600">-</td>
+                          <td className="py-3 px-2 text-right font-medium">800 Kč</td>
+                        </tr>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">Dermapen krk</td>
+                          <td className="py-3 px-2 text-right text-gray-600">-</td>
+                          <td className="py-3 px-2 text-right font-medium">500 Kč</td>
+                        </tr>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">Dermapen dekolt</td>
+                          <td className="py-3 px-2 text-right text-gray-600">-</td>
+                          <td className="py-3 px-2 text-right font-medium">750 Kč</td>
+                        </tr>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">Dermapen rty</td>
+                          <td className="py-3 px-2 text-right text-gray-600">-</td>
+                          <td className="py-3 px-2 text-right font-medium">700 Kč</td>
+                        </tr>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">Laminace řas</td>
+                          <td className="py-3 px-2 text-right text-gray-600">-</td>
+                          <td className="py-3 px-2 text-right font-medium">1 000 Kč</td>
+                        </tr>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">Laminace obočí</td>
+                          <td className="py-3 px-2 text-right text-gray-600">-</td>
+                          <td className="py-3 px-2 text-right font-medium">600 Kč</td>
+                        </tr>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">Laminace řas + obočí</td>
+                          <td className="py-3 px-2 text-right text-gray-600">-</td>
+                          <td className="py-3 px-2 text-right font-medium">1 000 Kč</td>
+                        </tr>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">Kosmetické ošetření pro muže</td>
+                          <td className="py-3 px-2 text-right text-gray-600">60 min</td>
+                          <td className="py-3 px-2 text-right font-medium">1 250 Kč</td>
+                        </tr>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">Mikrojehlování bez kosmetického ošetření</td>
+                          <td className="py-3 px-2 text-right text-gray-600">-</td>
+                          <td className="py-3 px-2 text-right font-medium">1 500 Kč</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </motion.div>
+                
+                {/* HIFU Facelift */}
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, delay: 0.2 }}
+                >
+                  <h3 className="text-2xl md:text-3xl font-serif mb-6 relative">
+                    HIFU Facelift
+                    <span className="absolute -bottom-3 left-0 h-0.5 bg-[#d4af7a] w-16"></span>
+                  </h3>
+                  <p className="text-gray-600 mb-6 italic">Neinvazivní facelift pomocí fokusovaného ultrazvuku</p>
+                  <div className="overflow-x-auto">
+                    <table className="w-full border-collapse">
+                      <thead>
+                        <tr className="border-b border-gray-200">
+                          <th className="text-left py-4 px-2 font-medium">Služba</th>
+                          <th className="text-right py-4 px-2 font-medium">Doba trvání</th>
+                          <th className="text-right py-4 px-2 font-medium">Cena</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">HIFU facelift celý obličej</td>
+                          <td className="py-3 px-2 text-right text-gray-600">60 min</td>
+                          <td className="py-3 px-2 text-right font-medium">5 500 Kč</td>
+                        </tr>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">HIFU facelift celý obličej + krk</td>
+                          <td className="py-3 px-2 text-right text-gray-600">90 min</td>
+                          <td className="py-3 px-2 text-right font-medium">6 500 Kč</td>
+                        </tr>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">HIFU facelift spodní část obličeje</td>
+                          <td className="py-3 px-2 text-right text-gray-600">45 min</td>
+                          <td className="py-3 px-2 text-right font-medium">3 900 Kč</td>
+                        </tr>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">HIFU facelift oční okolí</td>
+                          <td className="py-3 px-2 text-right text-gray-600">30 min</td>
+                          <td className="py-3 px-2 text-right font-medium">2 900 Kč</td>
+                        </tr>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">HIFU facelift horní část obličeje</td>
+                          <td className="py-3 px-2 text-right text-gray-600">45 min</td>
+                          <td className="py-3 px-2 text-right font-medium">4 500 Kč</td>
+                        </tr>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">HIFU facelift krk</td>
+                          <td className="py-3 px-2 text-right text-gray-600">30 min</td>
+                          <td className="py-3 px-2 text-right font-medium">2 000 Kč</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </motion.div>
+                
+                {/* Endos-roller */}
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, delay: 0.3 }}
+                >
+                  <h3 className="text-2xl md:text-3xl font-serif mb-6 relative">
+                    Endos-roller
+                    <span className="absolute -bottom-3 left-0 h-0.5 bg-[#d4af7a] w-16"></span>
+                  </h3>
+                  <p className="text-gray-600 mb-6 italic">Pokročilá technologie kompresní mikrovibrace</p>
+                  <div className="overflow-x-auto">
+                    <table className="w-full border-collapse">
+                      <thead>
+                        <tr className="border-b border-gray-200">
+                          <th className="text-left py-4 px-2 font-medium">Služba</th>
+                          <th className="text-right py-4 px-2 font-medium">Doba trvání</th>
+                          <th className="text-right py-4 px-2 font-medium">Cena</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">Endos-roller 1 partie</td>
+                          <td className="py-3 px-2 text-right text-gray-600">30 min</td>
+                          <td className="py-3 px-2 text-right font-medium">850 Kč</td>
+                        </tr>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">Endos-roller 2 partie</td>
+                          <td className="py-3 px-2 text-right text-gray-600">45 min</td>
+                          <td className="py-3 px-2 text-right font-medium">1 050 Kč</td>
+                        </tr>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">Endos-roller 3 partie</td>
+                          <td className="py-3 px-2 text-right text-gray-600">60 min</td>
+                          <td className="py-3 px-2 text-right font-medium">1 050 Kč</td>
+                        </tr>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">Endos-roller 4 partie</td>
+                          <td className="py-3 px-2 text-right text-gray-600">75 min</td>
+                          <td className="py-3 px-2 text-right font-medium">1 050 Kč</td>
+                        </tr>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">Endos-roller - celý zadek a nohy</td>
+                          <td className="py-3 px-2 text-right text-gray-600">-</td>
+                          <td className="py-3 px-2 text-right font-medium">1 500 Kč</td>
+                        </tr>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">Endos-roller - celé tělo</td>
+                          <td className="py-3 px-2 text-right text-gray-600">-</td>
+                          <td className="py-3 px-2 text-right font-medium">1 900 Kč</td>
+                        </tr>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">Endos-roller - paže</td>
+                          <td className="py-3 px-2 text-right text-gray-600">-</td>
+                          <td className="py-3 px-2 text-right font-medium">600 Kč</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </motion.div>
+                
+                {/* Kavitace */}
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, delay: 0.4 }}
+                >
+                  <h3 className="text-2xl md:text-3xl font-serif mb-6 relative">
+                    Kavitace
+                    <span className="absolute -bottom-3 left-0 h-0.5 bg-[#d4af7a] w-16"></span>
+                  </h3>
+                  <p className="text-gray-600 mb-6 italic">Bezbolestné ošetření pomocí nízkofrekvenčního ultrazvuku</p>
+                  <div className="overflow-x-auto">
+                    <table className="w-full border-collapse">
+                      <thead>
+                        <tr className="border-b border-gray-200">
+                          <th className="text-left py-4 px-2 font-medium">Služba</th>
+                          <th className="text-right py-4 px-2 font-medium">Doba trvání</th>
+                          <th className="text-right py-4 px-2 font-medium">Cena</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">Kavitace 1 partie</td>
+                          <td className="py-3 px-2 text-right text-gray-600">30 min</td>
+                          <td className="py-3 px-2 text-right font-medium">900 Kč</td>
+                        </tr>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">Kavitace 2 partie</td>
+                          <td className="py-3 px-2 text-right text-gray-600">45 min</td>
+                          <td className="py-3 px-2 text-right font-medium">1 100 Kč</td>
+                        </tr>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">Kavitace 3 partie</td>
+                          <td className="py-3 px-2 text-right text-gray-600">60 min</td>
+                          <td className="py-3 px-2 text-right font-medium">1 100 Kč</td>
+                        </tr>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">Kavitace 4 partie</td>
+                          <td className="py-3 px-2 text-right text-gray-600">75 min</td>
+                          <td className="py-3 px-2 text-right font-medium">1 100 Kč</td>
+                        </tr>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">Kavitace - celé tělo</td>
+                          <td className="py-3 px-2 text-right text-gray-600">-</td>
+                          <td className="py-3 px-2 text-right font-medium">1 700 Kč</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </motion.div>
+                
+                {/* Budování svalů */}
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, delay: 0.5 }}
+                >
+                  <h3 className="text-2xl md:text-3xl font-serif mb-6 relative">
+                    Budování svalů
+                    <span className="absolute -bottom-3 left-0 h-0.5 bg-[#d4af7a] w-16"></span>
+                  </h3>
+                  <p className="text-gray-600 mb-6 italic">Elektrická stimulace svalů - 30 000 stahů za 30 minut</p>
+                  <div className="overflow-x-auto">
+                    <table className="w-full border-collapse">
+                      <thead>
+                        <tr className="border-b border-gray-200">
+                          <th className="text-left py-4 px-2 font-medium">Služba</th>
+                          <th className="text-right py-4 px-2 font-medium">Doba trvání</th>
+                          <th className="text-right py-4 px-2 font-medium">Cena</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">Budování svalů 1 partie</td>
+                          <td className="py-3 px-2 text-right text-gray-600">30 min</td>
+                          <td className="py-3 px-2 text-right font-medium">900 Kč</td>
+                        </tr>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">Budování svalů 2 partie</td>
+                          <td className="py-3 px-2 text-right text-gray-600">45 min</td>
+                          <td className="py-3 px-2 text-right font-medium">1 300 Kč</td>
+                        </tr>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">Budování svalů 3 partie</td>
+                          <td className="py-3 px-2 text-right text-gray-600">60 min</td>
+                          <td className="py-3 px-2 text-right font-medium">2 100 Kč</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </motion.div>
+                
+                {/* Balíčky */}
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, delay: 0.6 }}
+                >
+                  <h3 className="text-2xl md:text-3xl font-serif mb-6 relative">
+                    Balíčky
+                    <span className="absolute -bottom-3 left-0 h-0.5 bg-[#d4af7a] w-16"></span>
+                  </h3>
+                  <div className="overflow-x-auto">
+                    <table className="w-full border-collapse">
+                      <thead>
+                        <tr className="border-b border-gray-200">
+                          <th className="text-left py-4 px-2 font-medium">Služba</th>
+                          <th className="text-right py-4 px-2 font-medium">Cena</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">Balíček: 3x procedura endos 2 partie + 1x HIFU budování svalů zdarma</td>
+                          <td className="py-3 px-2 text-right font-medium">4 500 Kč</td>
+                        </tr>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">Balíček 2</td>
+                          <td className="py-3 px-2 text-right font-medium">2 700 Kč</td>
+                        </tr>
+                        <tr className="border-b border-gray-100 hover:bg-gray-50">
+                          <td className="py-3 px-2">Balíček 3</td>
+                          <td className="py-3 px-2 text-right font-medium">7 200 Kč</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </motion.div>
+              </div>
+              
+              <motion.div
+                className="mt-16 bg-gray-50 p-8 rounded-xl"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.7 }}
+              >
+                <h3 className="text-xl font-serif mb-4">Platební podmínky</h3>
+                <p className="text-gray-600 mb-2">Přijímáme platby v hotovosti, platební kartou nebo převodem na účet.</p>
+                <p className="text-gray-600 mb-2">Pro rezervaci termínu je vyžadována záloha ve výši 20% z ceny služby.</p>
+                <p className="text-gray-600">Storno podmínky: Zrušení rezervace méně než 24 hodin před termínem může být zpoplatněno.</p>
+              </motion.div>
+            </div>
+          </section>
+          
+          <section id="contact" className="py-20 bg-gray-50">
             <Contact />
           </section>
         </main>
@@ -105,17 +543,7 @@ function App() {
         
         {/* Modals */}
         <AnimatePresence>
-          {isKosmetikaDetail && kosmetikaServiceId && (
-            <Modal onClose={closeModal} title="Detail kosmetické služby">
-              <KosmetikaServiceDetail 
-                serviceId={kosmetikaServiceId} 
-                onClose={closeModal} 
-                openModal={openModal} 
-              />
-            </Modal>
-          )}
-          
-          {(activeModal === 'kosmetika' || activeModal === 'budovani-svalu' || activeModal === 'hifu' || activeModal === 'endosphere' || activeModal === 'kavitace' || activeModal === 'ostatni-sluzby') && (
+          {(activeModal === 'budovani-svalu' || activeModal === 'hifu' || activeModal === 'endosphere' || activeModal === 'kavitace' || activeModal === 'ostatni-sluzby') && (
             <Modal onClose={closeModal} title={activeModal.toUpperCase().replace('-', ' ')}>
               <ServiceDetail serviceId={activeModal} onClose={closeModal} openModal={openModal} />
             </Modal>

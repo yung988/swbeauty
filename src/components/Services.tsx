@@ -10,14 +10,14 @@ const Services = ({ openModal }: ServicesProps) => {
       id: 'kosmetika',
       name: 'KOSMETIKA',
       description: 'Kompletní péče o pleť a specializované kosmetické procedury',
-      image: '/images/service-hair.jpg',
+      image: '/images/cosmetic.png',
       benefits: ['14 různých procedur', 'Mikrojehlání a dermapen', 'Laminace řas a obočí']
     },
     {
       id: 'budovani-svalu',
       name: 'BUDOVÁNÍ SVALŮ',
       description: 'Revoluční technologie pro stimulaci svalů a tvarování těla',
-      image: '/images/service-hifu.jpg',
+      image: '/images/ems.png',
       benefits: ['30 000 stahů za 30 minut', 'Náhrada až 5 hodin posilování', 'Regenerace svalů']
     },
     {
@@ -38,21 +38,21 @@ const Services = ({ openModal }: ServicesProps) => {
       id: 'kavitace',
       name: 'KAVITACE',
       description: 'Bezbolestné ošetření ultrazukem rozbíjející tukové buňky',
-      image: '/images/service-endosphere.jpg',
+      image: '/images/cavitace.png',
       benefits: ['Rozbíjení tukových buněk', 'Odvádění tuků lymfou', 'Zštíhlení partií']
     },
     {
       id: 'ostatni-sluzby',
-      name: 'OSTATNÍ SLUŽBY',
+      name: 'BALÍČKY',
       description: 'Speciální balíčky procedur pro komplexní péči za výhodné ceny',
-      image: '/images/service-hifu.jpg',
+      image: '/images/ostatni.png',
       benefits: ['3 výhodné balíčky', 'Kombinace procedur', 'Maximální efekt']
     }
   ];
 
   return (
     <section id="services" className="py-16 md:py-24 bg-white relative">
-      {/* Odstranění dekorativních elementů pro čistší vzhled 
+      {/* Odstranění dekorativních elementů pro čistší vzhled   
       <motion.div 
         className="absolute top-20 left-10 w-64 h-64 rounded-full bg-gray-100/30 blur-3xl z-0"
         animate={{ 

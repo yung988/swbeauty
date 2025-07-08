@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Card, CardContent } from "@/components/ui/card";
 
 const Testimonials = () => {
   const testimonials = [
@@ -26,7 +27,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-32 bg-[#f8f8f8] relative overflow-hidden">
+    <section id="testimonials" className="py-20 md:py-32 bg-white">
       {/* Decorative elements */}
       <motion.div 
         className="absolute top-40 right-10 w-96 h-96 rounded-full bg-[#f8e1e6]/20 blur-3xl z-0"
